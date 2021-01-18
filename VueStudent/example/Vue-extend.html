@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Vue-extednd</h1>
+    <hr>
+    <web></web>
+    <hr>
+    <div id="test"></div>
+
+    <script type="text/javascript">
+
+
+        var app=Vue.extend({
+            template:"<p><a :href='webUrl'>{{webName}}</a></p>",
+            data:function(){
+                return{
+                    webName:'baidu',
+                    webUrl:'https://www.baidu.com/'
+                }
+            }
+        });
+        new app().$mount('web');
+    </script>
+</body>
+</html>

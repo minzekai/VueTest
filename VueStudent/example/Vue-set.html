@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>ssssss</h1>
+    <div id="app">
+        {{count}}
+        <ul>
+            <li v-for="item in arr">{{item}}</li>
+        </ul>
+        <button @click="btnClick()">数组的改变</button>
+    </div>
+    <p><button onclick="add()">外部添加</button></p>
+
+    <script type="text/javascript">
+    function add(){
+        // Vue.set(outData,'count',5);
+        // app.count++;
+        // outData.count++;
+        Vue.set(app.arr,app.arr.length,'ddd')
+    }
+
+    var outData={
+        count:1,
+        arr:['a','b','c']
+    }
+        var app=new Vue({
+            el:'#app',
+            data:outData,
+            methods:{
+            btnClick:function(){
+                var arrlen=this.arr.length;
+                console.log(arrlen);
+                Vue.set(this.arr,arrlen,'fff')
+            }
+        }
+        })
+    </script>
+</body>
+</html>

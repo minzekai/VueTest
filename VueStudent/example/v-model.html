@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>ssssss</h1>
+    <div id="app">
+        原始文本信息：{{message}}
+        <p>v-model: <input type="text" v-model="message"></p>
+        <p>v-model.lazy: <input type="text" v-model.lazy="message"></p>
+        <p>v-model.number: <input type="text" v-model.number="message"></p>
+        <p>v-model.trim: <input type="text" v-model.trim="message"></p>
+    
+        <hr>
+        多选框绑定单值
+        <input type="checkbox" id="isTrue" v-model="isTrue">
+        <label for="isTrue">{{isTrue}}</label>
+
+        <hr>
+        多选框绑定复数值
+        <input type="checkbox" id="admin"  value="admin" v-model="names">
+        <input type="checkbox" id="test" value="test" v-model="names">
+        <input type="checkbox" id="web"  value="web" v-model="names">
+        <input type="checkbox" id="java"  value="java" v-model="names">
+        <label for="names">{{names}}</label>
+
+        <hr>
+        单选框绑定单值
+        <input type="radio" name="sex" id="sex" value="男" v-model="sex">男
+        <input type="radio" name="sex" id="sex" value="女" v-model="sex">女
+        <label for="sex">您的性别是{{sex}}</label>
+    </div>
+
+    <script type="text/javascript">
+        var app=new Vue({
+            el:'#app',
+            data:{
+                message:'hello world123!',
+                isTrue:false,
+                names:[],
+                sex:''
+            }
+        })
+    </script>
+</body>
+</html>

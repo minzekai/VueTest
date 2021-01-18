@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>ssssss</h1>
+    <div id="app">
+        <p><img v-bind:src="imgSrc" alt="" width="200"></p>
+        <p><a v-bind:href="webUrl">百度</a></p>
+        <hr>
+        <p><div :class="classA">测试绑定class</div></p>
+        <p><div :class="{classA:isOK}">测试绑定判断</div></p>
+        <p><div :class="[classA,classB]">测试绑定数组</div></p>
+        <p><div :class="isOK?classA:classB">测试绑定三目运算符</div></p>
+    
+        <hr>
+        <p><input type="checkbox" name="isOK" id="isOK" v-model="isOK">
+        <span><label for="isOK">{{isOK}}</label></span>
+        </p>
+
+        <hr>
+        <p><div :style="{color:color,fontSize:font}">测试style绑定</div></p>
+        <p><div :style="styleObject">测试style的对象绑定</div></p>
+    </div>
+
+    <script type="text/javascript">
+        var app=new Vue({
+            el:'#app',
+            data:{
+                imgSrc:'https://www.baidu.com/img/bd_logo1.png?where=super',
+                webUrl:'https://www.baidu.com/',
+                isOK:false,
+                classA:'classA',
+                classB:'classB',
+                color: 'red',
+                font: '50px',
+                styleObject:{
+                    color: 'red',
+                    fontSize: '50px'
+                }
+            }
+        })
+    </script>
+    <style>
+        .classA{
+          color: red;  
+        }
+        
+        .classB{
+            /* color: skyblue; */
+            text-decoration: underline;
+            font-size: 50px;
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>ssssss</h1>
+
+    
+    <div id="app">
+        <!-- <div v-if="islogin" class="isIfStyle">你好，world</div> -->
+        <div v-show="islogin" class="isIfStyle">你好，world</div>
+        <!-- <div v-else>请登录</div> -->
+    </div>
+
+    <script type="text/javascript">
+        var app=new Vue({
+            el:'#app',
+            data:{
+                islogin:false
+            }
+        })
+    </script>
+</body>
+</html>
