@@ -17,15 +17,15 @@
 
 
         var app=Vue.extend({
-            template:"<p><a :href='webUrl'>{{webName}}</a></p>",
+            template:`<p>{{message}}-->{{admin}}-->{{asdf}}</p>`,
             data:function(){
                 return{
-                    webName:'baidu',
-                    webUrl:'https://www.baidu.com/'
+                    message:"Hello world"
                 }
-            }
+            },
+            props:['admin','asdf']
         });
-        new app().$mount('web');
+        new app({propsData:{admin:12,asdf:18}}).$mount('#test');
     </script>
 </body>
 </html>

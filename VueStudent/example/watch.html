@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>ssssss</h1>
+    <div id="app">
+        温度：{{wendu}}℃
+        <button @click="add(5)">温度加5度</button>
+        <button @click="rec(5)">温度减5度</button>
+        状态：{{yifu}}
+    </div>
+    <hr>
+
+    <script type="text/javascript">
+
+        var yifuArr=['冰冻状态，移动速度与攻击速度减慢','正常','灼伤状态，持续性减少生命值']
+
+        var app=new Vue({
+            el:'#app',
+            data:{
+                wendu:50,
+                yifu:yifuArr[1]
+            },
+            methods:{
+                add:function(n){
+                    this.wendu+=n
+                },
+                rec:function(n){
+                    this.wendu-=n
+                }
+            },
+            // watch:{
+            //     wendu:function(newVal,oldVal){
+            //         console.log(newVal);
+            //         console.log(oldVal);
+            //         if(newVal>40){
+            //             this.yifu=yifuArr[2]
+            //         }else if(newVal<0){
+            //             this.yifu=yifuArr[0]
+            //         }else{
+            //             this.yifu=yifuArr[1]
+            //         }
+            //     }
+            // },
+
+            // watch:{
+            //     wendu:{
+            //         handler(newVal,oldVal){
+            //         console.log(newVal);
+            //         console.log(oldVal);
+            //         if(newVal>40){
+            //             this.yifu=yifuArr[2]
+            //         }else if(newVal<0){
+            //             this.yifu=yifuArr[0]
+            //         }else{
+            //             this.yifu=yifuArr[1]
+            //         }
+            //     },
+            //     immediate:true
+            // }
+            // }
+            
+        })
+        app.$watch('wendu',function(newVal,oldVal){
+                    console.log(newVal);
+                    console.log(oldVal);
+                    if(newVal>40){
+                        this.yifu=yifuArr[2]
+                    }else if(newVal<0){
+                        this.yifu=yifuArr[0]
+                    }else{
+                        this.yifu=yifuArr[1]
+                    }
+        });
+    </script>
+</body>
+</html>

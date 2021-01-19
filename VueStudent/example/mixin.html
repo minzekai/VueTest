@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>ssssss</h1>
+    <div id="app">
+        {{Num}}
+        <button @click="add(5)">Add</button>
+        <button @click="rec(5)">Rec</button>
+    </div>
+    <hr>
+    <script type="text/javascript">
+
+        var mixint={
+            data:function(){
+                return {
+                    name:"admin",
+                    age:123,
+                    gender:'man'
+                }
+            }
+        }
+
+        var addLog={
+            updated:function(){
+                console.log('数据发生变化，变成了'+this.Num)
+            }
+        }
+
+        Vue.mixin({
+            updated:function(){
+                console.log("这是全局混入")
+            }
+        })
+        var app=new Vue({
+            mixins:[addLog,mixint],
+            el:'#app',
+            data:{
+                Num:0,
+                gender:'woman'
+            },
+            methods:{
+                add:function(n){
+                    this.Num+=n
+                },
+                rec:function(n){
+                    this.Num-=n
+                }
+            },
+            updated:function(){
+                console.log("原生的updated生命周期")
+            },
+            created:function(){
+                console.log(this.$data)
+            }
+        })
+    </script>
+</body>
+</html>

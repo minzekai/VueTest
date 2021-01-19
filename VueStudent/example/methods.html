@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>ssssss</h1>
+    <div id="app">
+        {{Num}}
+        <button @click="add(5)">Add</button>
+        <button @click="add(5,$event)">组件add</button>
+        <button @click="rec">Rec</button>
+        <p>
+            <but @click.native="add(12)"></but>
+        </p>
+    </div>
+    <hr>
+    <button onclick="app.add(10)">外部方法</button>
+
+    <script type="text/javascript">
+
+        var btnadd={
+            template:`<button>组件Add</button>`
+        }
+
+        var app=new Vue({
+            el:'#app',
+            data:{
+                Num:0
+            },
+            methods:{
+                add:function(n){
+                    this.Num+=n
+                },
+                add:function(n,$event){
+                    console.log($event);
+                    this.Num+=n
+                },
+                rec:function(){
+                    this.Num--
+                }
+            },
+            components:{
+                "but":btnadd
+            }
+        })
+    </script>
+</body>
+</html>
